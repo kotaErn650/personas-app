@@ -13,8 +13,8 @@
     <nav class="navbar bg-cyan-950">
         <form class="container-fluid justify-content-start">
             <button class="btn btn-outline-success me-2" type="button" onclick="window.location.href='http://127.0.0.1:8000/usuario'">IR a Usuarios</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button">Ir a Departamentos🔜</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button">Ir a Pais 🏴</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" onclick="window.location.href='http://127.0.0.1:8000/municipio'">Ir a Municipios🔜</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" onclick="window.location.href='http://127.0.0.1:8000/pais">Ir a Pais 🏴</button>
         </form>
     </nav>
     <div class="container">
