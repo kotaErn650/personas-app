@@ -11,6 +11,7 @@ Route::get('/', function () {
 //ruta para comunas//
 Route::get('/comuna',[ComunaController::class, 'index'])->name('comuna.index'); 
 Route::post('/comuna',[ComunaController::class, 'store'])->name('comuna.store');
-Route::get('/comuna/new',[ComunaController::class, 'create'])->name('comuna.create');
+Route::get('/comuna/new',[ComunaController::class, 'create'])->name('comuna.new');
+Route::delete('/comuna/{comuna}',[ComunaController::class, 'destroy'])->name('comuna.destroy');
 
 Route::get('/usuario',[UsuarioController::class, 'index']);
