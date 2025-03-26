@@ -16,14 +16,14 @@
     </nav>
     <div class="container">
         <h1>Listado de Departamentos</h1>
-        <a href="{{ route('departamento.new') }}" class="btn btn-primary">Agregar Departamento</a>
+        <a href="{{ route('departamento.create') }}" class="btn btn-primary">Agregar Departamento</a>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Código</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">País</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,13 +31,13 @@
                 <tr>
                     <td>{{ $departamento->depa_codi }}</td>
                     <td>{{ $departamento->depa_nomb }}</td>
-                    <td>{{ $departamento->pais->pais_nomb ?? 'N/A' }}</td>
+                    <td>{{ $departamento->pais_nomb }}</td>
                     <td>
-                        <a href="{{ route('departamento.edit', ['departamento' => $departamento->depa_codi]) }}" class="btn btn-info">Editar</a>
+                        <a href="{{ route('departamento.edit', ['departamento' => $departamento->depa_codi]) }}" class="btn btn-info">Edit</a>
                         <form action="{{ route('departamento.destroy', ['departamento' => $departamento->depa_codi]) }}" method="POST" style="display:inline-block" onsubmit="return confirm('¿Seguro que quieres eliminar este departamento?')">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
                 </tr>

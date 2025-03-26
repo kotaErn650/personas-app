@@ -31,13 +31,12 @@ Route::put('/municipio/{municipio}',[MunicipioController::class, 'update'])->nam
 Route::get('/municipio/{municipio}/edit',[MunicipioController::class, 'edit'])->name('municipio.edit');
 
 //Rua de mi Departamento
-Route::get('/departamento',[DepartamentoController::class, 'index'])->name('departamento.index');
-Route::post('/departamento',[DepartamentoController::class, 'store'])->name('departamento.store');
-Route::get('/departamento/new',[DepartamentoController::class, 'create'])->name('departamento.new');
-Route::delete('/departamento/{departamento}',[DepartamentoController::class, 'destroy'])->name('departamento.destroy');
-Route::put('/departamento/{departamento}',[DepartamentoController::class, 'update'])->name('departamento.update');
-Route::get('/departamento/{departamento}/edit',[DepartamentoController::class, 'edit'])->name('departamento.edit');
-
+Route::get('/departamento', [DepartamentoController::class, 'index'])->name('departamento.index');
+Route::post('/departamento', [DepartamentoController::class, 'store'])->name('departamento.store');
+Route::get('/departamento/create', [DepartamentoController::class, 'create'])->name('departamento.create');
+Route::delete('/departamento/{departamento}', [DepartamentoController::class, 'destroy'])->name('departamento.destroy');
+Route::put('/departamento/{departamento}', [DepartamentoController::class, 'update'])->name('departamento.update');
+Route::get('/departamento/{departamento}/edit', [DepartamentoController::class, 'edit'])->name('departamento.edit');
 
 //Ruta e mi Pais
 Route::get('/pais', [PaisController::class, 'index'])->name('pais.index');

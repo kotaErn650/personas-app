@@ -13,6 +13,11 @@ class Departamento extends Model
     protected $primaryKey = 'depa_codi';
     public $timestamps = false;
 
+    //por corregir las relaciones de pais
+    protected $fillable = [
+        'depa_nomb',
+        'pais_codi'
+    ];
     public function pais()
     {
         return $this->belongsTo(Pais::class, 'pais_codi', 'pais_codi');

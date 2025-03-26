@@ -16,8 +16,11 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        $departamentos = Departamento::with('pais')->get();
-        return view('departamento.index', compact('departamentos'));
+        $departamentos = DB::table('tb_departamento')
+            ->join('tb_pais', 'tb_departamento.pais_codi', '=', 'tb_pais.pais_codi')
+            ->select('tb_departamento.depa_codi', 'tb_departamento.depa_nomb', 'tb_pais.pais_nomb')
+            ->get();
+        return view('departamento.index', ['departamentos' => $departamentos]);
     }
 
     /**
@@ -27,8 +30,10 @@ class DepartamentoController extends Controller
      */
     public function create()
     {
-        $paises = Pais::all();
-        return view('departamento.new', compact('paises'));
+        $paises = DB::table('tb_pais')
+            ->orderBy('pais_nomb')
+            ->get();
+        return view('departamento.create', ['paises' => $paises]);
     }
 
     /**
@@ -39,13 +44,16 @@ class DepartamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'depa_nomb' => 'required|string|max:52',
-            'pais_codi' => 'required|exists:tb_pais,pais_codi',
-        ]);
+        $departamento = new Departamento();
+        $departamento->depa_nomb = $request->name;
+        $departamento->pais_codi = $request->code;
+        $departamento->save();
 
-        Departamento::create($request->all());
-        return redirect()->route('departamento.index');
+        $departamentos = DB::table('tb_departamento')
+            ->join('tb_pais', 'tb_departamento.pais_codi', '=', 'tb_pais.pais_codi')
+            ->select('tb_departamento.*', 'tb_pais.pais_nomb')
+            ->get();
+        return view('departamento.index', ['departamentos' => $departamentos]);
     }
 
     /**
@@ -64,9 +72,11 @@ class DepartamentoController extends Controller
      */
     public function edit(string $id)
     {
-        $departamento = Departamento::findOrFail($id);
-        $paises = Pais::all();
-        return view('departamento.edit', compact('departamento', 'paises'));
+        $departamento = Departamento::find($id);
+        $paises = DB::table('tb_pais')
+            ->orderBy('pais_nomb')
+            ->get();
+        return view('departamento.edit', ['departamento' => $departamento, 'paises' => $paises]);
     }
 
     /**
@@ -78,14 +88,16 @@ class DepartamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'depa_nomb' => 'required|string|max:52',
-            'pais_codi' => 'required|exists:tb_pais,pais_codi',
-        ]);
+        $departamento = Departamento::find($id);
+        $departamento->depa_nomb = $request->name;
+        $departamento->pais_codi = $request->code;
+        $departamento->save();
 
-        $departamento = Departamento::findOrFail($id);
-        $departamento->update($request->all());
-        return redirect()->route('departamento.index');
+        $departamentos = DB::table('tb_departamento')
+            ->join('tb_pais', 'tb_departamento.pais_codi', '=', 'tb_pais.pais_codi')
+            ->select('tb_departamento.*', 'tb_pais.pais_nomb')
+            ->get();
+        return view('departamento.index', ['departamentos' => $departamentos]);
     }
 
     /**
@@ -96,8 +108,13 @@ class DepartamentoController extends Controller
      */
     public function destroy($id)
     {
-        $departamento = Departamento::findOrFail($id);
+        $departamento = Departamento::find($id);
         $departamento->delete();
-        return redirect()->route('departamento.index');
+
+        $departamentos = DB::table('tb_departamento')
+            ->join('tb_pais', 'tb_departamento.pais_codi', '=', 'tb_pais.pais_codi')
+            ->select('tb_departamento.*', 'tb_pais.pais_nomb')
+            ->get();
+        return view('departamento.index', ['departamentos' => $departamentos]);
     }
 }
