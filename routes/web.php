@@ -8,6 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/comuna',[ComunaController::class, 'index']);
+//ruta para comunas//
+Route::get('/comuna',[ComunaController::class, 'index'])->name('comuna.index'); 
+Route::post('/comuna',[ComunaController::class, 'store'])->name('comuna.store');
+Route::get('/comuna/new',[ComunaController::class, 'create'])->name('comuna.create');
 
 Route::get('/usuario',[UsuarioController::class, 'index']);
