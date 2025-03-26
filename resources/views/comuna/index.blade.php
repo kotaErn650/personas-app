@@ -8,13 +8,14 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title></title>
   </head>
   <body>
     <nav class="navbar bg-cyan-950">
         <form class="container-fluid justify-content-start">
-            <button class="btn btn-outline-success me-2" type="button">Main button</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+            <button class="btn btn-outline-success me-2" type="button" > <a href="http://127.0.0.1:8000/usuario"></a>Ir a Minicipios</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button">Ir a Departamentos🔜</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button">Ir a Pais 🏴</button>
         </form>
     </nav>
     <div class="container">
