@@ -9,23 +9,24 @@
   <body>
     <div class="container">
         <h1>Agregar Nuevo Departamento</h1>
-        <form action="{{ route('departamento.store') }}" method="POST">
-            @csrf
+        <form method="POST" action="{{ route('pais.update', ['pais' => $pais->pais_codi]) }}">
+          @csrf
+          @method('PUT')
             <div class="mb-3">
-                <label for="depa_nomb" class="form-label">Nombre del Departamento</label>
-                <input type="text" class="form-control" id="depa_nomb" name="depa_nomb" required>
+                <label class="form-label">Código</label>
+                <input type="text" class="form-control" value="{{ $pais->pais_codi }}" readonly>
             </div>
             <div class="mb-3">
-                <label for="pais_codi" class="form-label">País</label>
-                <select class="form-select" id="pais_codi" name="pais_codi" required>
-                    <option value="">Seleccione un país</option>
-                    @foreach($paises as $pais)
-                        <option value="{{ $pais->pais_codi }}">{{ $pais->pais_nomb }}</option>
-                    @endforeach
-                </select>
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" 
+                      value="{{ $pais->pais_nomb }}" required>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('departamento.index') }}" class="btn btn-secondary">Cancelar</a>
+            <div class="mb-3">
+                <label for="capital" class="form-label">Capital</label>
+                <input type="number" class="form-control" id="capital" name="capital" 
+                      value="{{ $pais->pais_capi }}" required>
+            </div>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

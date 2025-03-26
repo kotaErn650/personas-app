@@ -40,9 +40,9 @@ Route::get('/departamento/{departamento}/edit',[DepartamentoController::class, '
 
 
 //Ruta e mi Pais
-Route::get('/pais',[PaisController::class, 'index'])->name('pais.index');
-Route::post('/pais',[PaisController::class, 'store'])->name('pais.store');
-Route::get('/pais/new',[PaisController::class, 'create'])->name('pais.new');
-Route::delete('/pais/{pais}',[PaisController::class, 'destroy'])->name('pais.destroy');
-Route::put('/pais/{pais}',[PaisController::class, 'update'])->name('pais.update');
-Route::get('/pais/{pais}/edit',[PaisController::class, 'edit'])->name('pais.edit');
+Route::get('/pais', [PaisController::class, 'index'])->name('pais.index');
+Route::post('/pais', [PaisController::class, 'store'])->name('pais.store');
+Route::get('/pais/new', [PaisController::class, 'create'])->name('pais.new');
+Route::delete('/pais/{pais}', [PaisController::class, 'destroy'])->name('pais.destroy');
+Route::put('/pais/{pais}', [PaisController::class, 'update'])->name('pais.update');
+Route::get('/pais/{pais}/edit', [PaisController::class, 'edit'])->name('pais.edit');
