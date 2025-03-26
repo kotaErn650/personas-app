@@ -13,6 +13,13 @@ class Municipio extends Model
     public $timestamps = false;
 
 
+    protected $fillable = [
+        'muni_codi',
+        'muni_nomb',
+        'depa_codi',
+    ];
+
+
 
     public function departamento()
     {
