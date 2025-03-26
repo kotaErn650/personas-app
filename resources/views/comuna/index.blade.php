@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar bg-cyan-950">
         <form class="container-fluid justify-content-start">
-            <button class="btn btn-outline-success me-2" type="button" > <a href="http://127.0.0.1:8000/usuario"></a>Ir a Minicipios</button>
+            <button class="btn btn-outline-success me-2" type="button" onclick="window.location.href='http://127.0.0.1:8000/usuario'">Ir a Municipios</button>
             <button class="btn btn-sm btn-outline-secondary" type="button">Ir a Departamentos🔜</button>
             <button class="btn btn-sm btn-outline-secondary" type="button">Ir a Pais 🏴</button>
         </form>
@@ -33,7 +33,7 @@
                     <tr>
                         <th scope="row">{{$comuna-> comu_codi}}</th>
                         <td>{{$comuna-> comu_nomb}}</td>
-                        <td>{{$comuna-> muni_codi}}</td>
+                        <td>{{$comuna-> muni_nomb}}</td>
                         <td><span> Actions</span></td>
                     </tr>
                     @endforeach
