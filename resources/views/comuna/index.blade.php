@@ -37,8 +37,7 @@
                         <td>{{$comuna-> muni_nomb}}</td>
                         <td>
                             <form action="{{ route('comuna.destroy', ['comuna' => $comuna->comu_codi]) }}"
-                                method= 'POST' style="display :inline-block"
-                                onsubmit="return confirm('Deseas eliminar el Reegistro?')">
+                                method= 'POST' style="display :inline-block">
                                 @method('DELETE')
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Delete">
